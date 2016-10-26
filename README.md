@@ -40,15 +40,15 @@ COLMAP
 ------
 
 This project can be combined with COLMAP (<https://github.com/colmap/colmap>) to generate 3D models from the discovered connected components. This project already includes a minimal subset of COLMAP to save the connected component results to disk.  
-*NOTE:* An old version of COLAMP is included. The latest version will be supported shortly.
+**NOTE:** An old version of COLAMP is included. The latest version will be supported shortly.
 
 Included Software
 -----------------
 
-The following software packages have already been included.
+The following software packages have already been included in this project.
 
 ### ANN
-Approximate nearest neighbor library. Included with VocabTree2.  
+Approximate nearest neighbor library. Included with [VocabTree2](https://github.com/snavely/VocabTree2).  
 <http://www.cs.umd.edu/~mount/ANN/>
 
 ### Eigen
@@ -60,7 +60,7 @@ Crash handling system.
 <https://chromium.googlesource.com/breakpad/breakpad/>
 
 ### ImageLib
-Library included with VocabTree2
+Library included with [VocabTree2](https://github.com/snavely/VocabTree2).
 
 ### libjpeg-turbo
 Fast JPEG library.  
