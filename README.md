@@ -3,7 +3,7 @@ streaming_connected_component_discovery
 
 This is the code that corresponds to the paper: J. Heinly, J.L. Schönberger, E. Dunn, and J.M. Frahm, "Reconstructing the World* in Six Days *(As Captured by the Yahoo 100 Million Image Dataset)", CVPR 2015.
 
-Website:
+Website:  
 <http://jaredheinly.com/reconstructing_the_world.html>
 
 Necessary Software
@@ -15,31 +15,31 @@ The following software is required in order to build and use this project.
 If using Windows, make sure that Visual Studio has been run at least once and is able to compile C++ code. If Visual Studio has not been run, CMake will have problems when attempting to identify and use the native Visual Studio compiler. The current version that has been used is VS2013, utilizing the 64-bit compiler.
 
 ### CMake
-CMake is a tool that manages the building of software on multiple different platforms. A developer need only to write a `CMakeLists.txt` file, and CMake can generate a Visual Studio solution for Windows, a Makefile for *nix, etc. The latest binaries can be obtained from: 
+CMake is a tool that manages the building of software on multiple different platforms. A developer need only to write a `CMakeLists.txt` file, and CMake can generate a Visual Studio solution for Windows, a Makefile for *nix, etc. The latest binaries can be obtained from:  
 <http://www.cmake.org/download>
 
 ### CUDA
-Several of the libraries in this project depend on CUDA. The latest version can be downloaded here: 
-<https://developer.nvidia.com/cuda-downloads>
+Several of the libraries in this project depend on CUDA. The latest version can be downloaded here:  
+<https://developer.nvidia.com/cuda-downloads>  
 The latest version that has been used is CUDA 6.5
 
 ### OpenCV 2.4.x
-Download the latest version of OpenCV that is 2.4.x from:
-<http://opencv.org/downloads.html>
-OR
-<http://sourceforge.net/projects/opencvlibrary/files/opencv-win/>
+Download the latest version of OpenCV that is 2.4.x from:  
+<http://opencv.org/downloads.html>  
+OR  
+<http://sourceforge.net/projects/opencvlibrary/files/opencv-win/>  
 The latest version that has been used is OpenCV 2.4.9
 
 ### Boost
-Download the latest version of the Boost binaries from:
-<http://sourceforge.net/projects/boost/files/boost-binaries/>
-NOTE: make sure to download the 64-bit boost binaries that match the version of Visual Studio that you are using.
+Download the latest version of the Boost binaries from:  
+<http://sourceforge.net/projects/boost/files/boost-binaries/>  
+NOTE: make sure to download the 64-bit boost binaries that match the version of Visual Studio that you are using.  
 The latest version that has been used is Boost 1.56
 
 COLMAP
 ------
 
-This project can be combined with COLMAP (<https://github.com/colmap/colmap>) to generate 3D models from the discovered connected components. This project already includes a minimal subset of COLMAP to save the connected component results to disk.
+This project can be combined with COLMAP (<https://github.com/colmap/colmap>) to generate 3D models from the discovered connected components. This project already includes a minimal subset of COLMAP to save the connected component results to disk.  
 *NOTE:* An old version of COLAMP is included. The latest version will be supported shortly.
 
 Included Software
@@ -48,37 +48,37 @@ Included Software
 The following software packages have already been included.
 
 ### ANN
-Approximate nearest neighbor library. Included with VocabTree2.
+Approximate nearest neighbor library. Included with VocabTree2.  
 <http://www.cs.umd.edu/~mount/ANN/>
 
 ### Eigen
-Linear algebra library.
+Linear algebra library.  
 <http://eigen.tuxfamily.org/>
 
 ### Google Breakpad
-Crash handling system.
+Crash handling system.  
 <https://chromium.googlesource.com/breakpad/breakpad/>
 
 ### ImageLib
 Library included with VocabTree2
 
 ### libjpeg-turbo
-Fast JPEG library.
+Fast JPEG library.  
 <http://libjpeg-turbo.virtualgl.org/>
 
 ### msinttypes
 Type definitions for Visual Studio compilers.
 
 ### SiftGPU
-GPU-enabled SIFT computation.
+GPU-enabled SIFT computation.  
 <http://cs.unc.edu/~ccwu/siftgpu/>
 
 ### SQLite
-Lightweight SQL database.
+Lightweight SQL database.  
 <https://sqlite.org/>
 
 ### VocabTree2
-Vocabulary tree library.
+Vocabulary tree library.  
 <https://github.com/snavely/VocabTree2>
 
 Compilation Instructions
@@ -129,7 +129,7 @@ A typical dataset will contain the following folders and files, and will be refl
 
 Typically, to prepare a dataset for processing, its images should be arranged in a hierarchical format, and optionally distributed across multiple hard drives. The folders of images on disk is described in the `pcdb.txt` file (a sample file is in the `lib_v3d_support/examples` folder). Then, depending on the number of threads that should be used to read images from disk, multiple files should be created where each file contains a list of the images to be read by a single thread. A file containing paths to these multiple files should then be created, and for instance, named `image_lists.txt`.
 
-The `config.txt` file is the primary configuration file and contains most of the settings used to run the pipeline. For instance, paths to the above dataset folders (`backup`, `log`, `visualization`, etc.) will need to be specified, as well as the path to a pretrained vocabulary tree (a sample is provided [here](https://drive.google.com/file/d/0B6A-JDvcxvHgbEp1dnBORXRCWHM/view?usp=sharing), as well as trees generated with [VocabTree2](https://github.com/snavely/VocabTree2)), mapper project template (provided in the `data` folder), and sqlite database (which will be created by the executable and should not exist prior running the executable). Additionally, settings for the number of registration attempts per image (`max_match_attempts_per_image`), discard rate (`cluster_discard_rate_in_images`), number of CPU threads (`num_main_cpu_threads`), number of GPU threads (`num_cuda_sift_threads`, `num_main_gpu_threads`), GPU indices (`sift_gpu_nums_list`, `main_gpu_nums_list`), image dimension (`max_image_dimension`), and number of SIFT features (`max_num_features`).
+The `config.txt` file is the primary configuration file and contains most of the settings used to run the pipeline. For instance, paths to the above dataset folders (`backup`, `log`, `visualization`, etc.) will need to be specified, as well as the path to a pretrained vocabulary tree (a sample is provided [here](https://drive.google.com/file/d/0B6A-JDvcxvHgbEp1dnBORXRCWHM/view), as well as trees generated with [VocabTree2](https://github.com/snavely/VocabTree2)), mapper project template (provided in the `data` folder), and sqlite database (which will be created by the executable and should not exist prior running the executable). Additionally, settings for the number of registration attempts per image (`max_match_attempts_per_image`), discard rate (`cluster_discard_rate_in_images`), number of CPU threads (`num_main_cpu_threads`), number of GPU threads (`num_cuda_sift_threads`, `num_main_gpu_threads`), GPU indices (`sift_gpu_nums_list`, `main_gpu_nums_list`), image dimension (`max_image_dimension`), and number of SIFT features (`max_num_features`).
 
 After all necessary settings are changed in the `config.txt` file, `run_connected_component_discovery.bat` can be run again, which will process the dataset and discover its connected components of images.
 
