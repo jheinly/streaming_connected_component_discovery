@@ -1,0 +1,1 @@
+run_all_mapper_tasks.py output_sfm\all_mapper_tasks.txt 16

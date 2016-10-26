@@ -1,0 +1,50 @@
+cmake_minimum_required(VERSION 3.0)
+
+# Set the name of the project.
+project(YourProjectName)
+
+find_package(cmake_helper REQUIRED)
+
+# Find modules designed with cmake_helper using find_package commands.
+# To hard-code a hint as to where to find the module, use the PATHS option.
+# ex. find_package(module_name)
+# ex. find_package(module_name PATHS ${CMAKE_CURRENT_LIST_DIR}/../module_name_dir)
+
+# Find 3rd-party packages.
+# ex. find_package(Boost COMPONENTS system thread)
+# ex. find_package(OpenCV COMPONENTS core)
+find_package(CUDA)
+
+# Set the compile definitions for this executable.
+add_definitions(
+  # ex. -DPREPROCESSOR_FLAG
+  # ex. -DPREPROCESSOR_PATH="${CMAKE_CURRENT_LIST_DIR}/../path"
+)
+
+# Set the include directories for this executable.
+include_directories(
+  # ex. ${CMAKE_CURRENT_LIST_DIR}/src
+  # ex. ${Boost_INCLUDE_DIR}
+  # ex. ${OpenCV_INCLUDE_DIRS}
+)
+
+# Get the necessary compile definitions for this executable.
+cmh_prepare_cuda_compiler(CMH_CUDA_COMPILER_DEFINITIONS)
+
+# Create a CUDA executable with the given source files.
+cuda_add_executable(${PROJECT_NAME}
+  # ex. main.cu
+  # ex. src/main.cu
+  # ex. ${CMAKE_CURRENT_LIST_DIR}/../main.cu
+  # ...
+  OPTIONS ${CMH_CUDA_COMPILER_DEFINITIONS}
+)
+
+# Set the libraries that need to be linked to this executable.
+target_link_libraries(${PROJECT_NAME}
+  # ex. ${Boost_LIBRARIES}
+  # ex. ${OpenCV_LIBS}
+)
+
+# Link the cmake_helper modules to this executable.
+cmh_link_modules(${PROJECT_NAME})

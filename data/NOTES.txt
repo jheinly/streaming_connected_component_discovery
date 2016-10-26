@@ -1,0 +1,3 @@
+vocab_tree_1m.bin
+-----------------
+1M (6 levels, branching factor 10) visual word vocabulary tree, trained on 250M Berlin dataset SIFT features.

@@ -1,0 +1,28 @@
+#DB_VERSION_0
+
+# Specify paths to individual files.
+dim file D:/path/images.dim
+focal file D:/path/images.focal
+gps file D:/path/imgaes.gps
+
+# The images will have a file extension of jpg, and will
+# have 3 digits for the first folder, and 2 digits for
+# the second folder, ex. D:/path/images/000/12/00012345.jpg
+image dir jpg 2 3 2
+image def 0 0 D:/path/images1
+image def 1 3 E:/path/images2
+
+# The thumbnails will have 3 digits for the first, second,
+# and third folders in the hierarchy,
+# ex. D:/path/thumbnails/000/111/222/000111222456.jpg
+thumbnail dir jpg 4 3 3 3
+thumbnail def 0 3 D:/path/thumbnails
+
+# All of the sift files will be in the same folder.
+# NOTE: older PCDB implementations may not support
+# this convention.
+sift dir sift 0
+sift def D:/path/sift
+
+harris_brief dir harris_brief 2 3 2
+harris_brief def 0 3 D:/path/harris_brief
